@@ -17,9 +17,6 @@ Base.@kwdef mutable struct T0_Knoten <: Temp_Knoten
     #-- M-Matrix
     M::Array{Int} = [0] 
 
-    #-- Jacobi Struktur
-    J::Int = 1
-
     #-- zusätzeliche Infos
     Z::Dict
 end

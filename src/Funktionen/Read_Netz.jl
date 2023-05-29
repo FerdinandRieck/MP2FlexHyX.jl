@@ -2,7 +2,6 @@ function readNetz(dir,netzfile,zwerte,zt,znamen)
 	J = JSON.parsefile(netzfile)
 	eventfile = []
 	if haskey(J,"Events")
-		#dir = dirname(@__DIR__)	#-- Direction von Package
 		eventfile = get(J,"Events",[]); eventfile = dir*"/Events/"*eventfile[2:end]*".jl"
 		println("Eventfile:",eventfile)
 		include(eventfile)
@@ -37,7 +36,6 @@ function readNetz(dir,netzfile,zwerte,zt,znamen)
 				if (haskey(kk,"Temp")==true) kk["T_PV"] = kk["Temp"] + 273.15; end
 				if (haskey(kk,"Strahlung")==true) kk["G"] = kk["Strahlung"] end
 			end
-			#if (typ=="iV")&(haskey(kk,"R")==false) kk["R"]=0.0; end # ??? Wofür wird R benötigt???
 			if (typ=="iE")&(haskey(kk,"Zellen")==true) kk["n_Z"] = kk["Zellen"] end
 			if (typ=="mMH")&(haskey(kk,"Theta0")==true) kk["Θ0"] = kk["Theta0"] end
 			for (k, v) in kk
@@ -82,7 +80,7 @@ function readNetz(dir,netzfile,zwerte,zt,znamen)
 		kanten[i]["VonNach"][1] = findall(x->x==kanten[i]["VonNach"][1],nr2kn)[1];
 		kanten[i]["VonNach"][2] = findall(x->x==kanten[i]["VonNach"][2],nr2kn)[1];
 	end
-	#-- RefKanten Infos in Kante einfügen und RefKanten Index überschreiben
+	#-- RefKanten Infos in Kante einfügen und RefKante löschen
 	idx_ka = Int[]
 	for i = 1:n_e
 		if haskey(kanten[i],"RefKante")

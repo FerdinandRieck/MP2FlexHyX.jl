@@ -118,8 +118,6 @@ function solveNetzwerk(dir::String)
 
     y, idx_iflussL, idx_iflussR, idx_mfluss, idx_efluss, P_scale, y_leg, idx_ele = netzwerk2array(elemente)  
 
-    # Jacstru = comp_jacstru(IP,IM,idx_ifluss,idx_mfluss,idx_efluss,elemente,length(y))
-
     #-- Netzinfo und Speicherplatz (übergebe als Parameter an solver/dgl-function)
     sum_i = Array{Number}(undef, n_n);  #-- nur einmal Speicher reservieren
     sum_m = Array{Number}(undef, n_n);

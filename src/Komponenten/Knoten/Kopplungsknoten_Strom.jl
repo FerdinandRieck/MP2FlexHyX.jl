@@ -16,9 +16,6 @@ Base.@kwdef mutable struct U_Knoten <: Strom_Knoten
     #-- M-Matrix
     M::Array{Int} = [0] 
 
-    #-- Jacobi Struktur
-    J_fluss::Array{String} = ["sum_i"]
-
     #-- zusätzeliche Infos
     Z::Dict
 end

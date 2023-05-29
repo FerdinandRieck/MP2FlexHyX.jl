@@ -24,10 +24,6 @@ Base.@kwdef mutable struct GPSP_Knoten <: Gas_Knoten
     #-- M-Matrix
     M::Array{Int} = [1; 1; 0; 0] 
 
-    #-- Jacobi Struktur
-    J::Array{Int} = [0 0 0 0; 0 0 0 0; 0 1 1 0; 1 1 0 1]
-    J_fluss::Array{String} = ["sum_m"; "sum_e"]
-
     #-- zusätzeliche Infos
     Z::Dict
 end
