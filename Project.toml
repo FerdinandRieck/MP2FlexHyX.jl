@@ -1,0 +1,13 @@
+name = "MP2FlexHyX"
+uuid = "57478752-fe33-4e23-b6fe-8c14b579a981"
+authors = ["Ferdinand Rieck <ferdinand.rieck@smail.emt.h-brs.de>"]
+version = "0.1.0"
+
+[compat]
+julia = "1.8.1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
