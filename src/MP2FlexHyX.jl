@@ -31,7 +31,7 @@ module MP2FlexHyX
     export solveNetzwerk
     export plotSol
 
-    #idx_ele, sol, y = solveNetzwerk(dir)
+    #sol, y, idx_ele = solveNetzwerk(dir)
     #plotSol(y,sol.t)
  end
 

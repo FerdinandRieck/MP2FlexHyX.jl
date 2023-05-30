@@ -118,13 +118,7 @@ function solveNetzwerk(dir::String)
 
     y, idx_iflussL, idx_iflussR, idx_mfluss, idx_efluss, P_scale, y_leg, idx_ele = netzwerk2array(elemente)  
 
-    #-- Netzinfo und Speicherplatz (übergebe als Parameter an solver/dgl-function)
-    sum_i = Array{Number}(undef, n_n);  #-- nur einmal Speicher reservieren
-    sum_m = Array{Number}(undef, n_n);
-    sum_e = Array{Number}(undef, n_n); 
-    #-------------   
-
-    params = IM, IP, elemente, sum_i, sum_m, sum_e, idx_iflussL, idx_iflussR, idx_mfluss, idx_efluss, idx_ele, n_n, n_e
+    params = IM, IP, elemente, idx_iflussL, idx_iflussR, idx_mfluss, idx_efluss, idx_ele, n_n, n_e
              
     #-- konsistente AW berechnen -----------
     ind_alg = findall(x->x==0,M[diagind(M)]);
@@ -160,7 +154,7 @@ function solveNetzwerk(dir::String)
     println(sol.retcode," nt=",size(sol.t)); 
     println(sol.destats)
     println("---------------- This was FlexHyX -----------------")
-    return idx_ele, sol, y
+    return sol, y, idx_ele
 end
 
 function MakeParam(kk) 

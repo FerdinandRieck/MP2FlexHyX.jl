@@ -23,7 +23,7 @@ Base.@kwdef mutable struct GP0_Knoten <: Gas_Knoten
     Z::Dict
 end
 
-function Knoten!(dy,k,sum_i,sum_m,sum_e,knoten::GP0_Knoten)
+function Knoten!(dy,k,knoten::GP0_Knoten,t)
     #-- Parameter
     (; P0,T0) = knoten.Param
     #--
@@ -34,7 +34,3 @@ function Knoten!(dy,k,sum_i,sum_m,sum_e,knoten::GP0_Knoten)
     dy[k] = P-P0
     dy[k+1] = T-T0
 end
-
-Params = GP0_Param()
-kk = Dict() #-- zusätzliche Infos
-knoten = GP0_Knoten(Param=Params, Z=kk)

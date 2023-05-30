@@ -18,9 +18,12 @@ Base.@kwdef mutable struct U_Knoten <: Strom_Knoten
 
     #-- zusätzeliche Infos
     Z::Dict
+
+    #-- Knotenbilanz
+    sum_i::Number = 0.0  
 end
 
-function Knoten!(dy,k,sum_i,sum_m,sum_e,knoten::U_Knoten)
-    dy[k] = sum_i
+function Knoten!(dy,k,knoten::U_Knoten,t)
+    dy[k] = knoten.sum_i
     nothing
 end

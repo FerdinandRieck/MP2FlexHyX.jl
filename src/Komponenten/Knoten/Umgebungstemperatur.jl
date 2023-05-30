@@ -21,7 +21,7 @@ Base.@kwdef mutable struct T0_Knoten <: Temp_Knoten
     Z::Dict
 end
 
-function Knoten!(dy,k,sum_i,sum_m,sum_e,knoten::T0_Knoten)
+function Knoten!(dy,k,knoten::T0_Knoten,t)
     (; T0) = knoten.Param
     T = knoten.y.T
 
