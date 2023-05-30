@@ -154,7 +154,7 @@ function solveNetzwerk(dir::String)
     println(sol.retcode," nt=",size(sol.t)); 
     println(sol.destats)
     println("---------------- This was FlexHyX -----------------")
-    return sol, y, idx_ele
+    return idx_ele, sol, y
 end
 
 function MakeParam(kk) 
