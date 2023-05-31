@@ -33,7 +33,7 @@ module MP2FlexHyX
     pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Kanten/";join=true))
     include.(pfad)
     if ispath(pwd()*"/Komponenten/Kanten/")
-        pfad = filter(contains(r".jl$"), readdir(pwd()*"/Komponenten/Knoten/";join=true))
+        pfad = filter(contains(r".jl$"), readdir(pwd()*"/Komponenten/Kanten/";join=true))
         include.(pfad)
     end
     
