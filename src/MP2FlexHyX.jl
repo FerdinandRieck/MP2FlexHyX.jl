@@ -30,8 +30,10 @@ module MP2FlexHyX
     end
 
     #-- Kanten einfügen
-    pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Kanten/";join=true))
-    include.(pfad)
+    if ispath(pwd()*"/src/Komponenten/Kanten/")
+        pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Kanten/";join=true))
+        include.(pfad)
+    end
     if ispath(pwd()*"/Komponenten/Kanten/")
         pfad = filter(contains(r".jl$"), readdir(pwd()*"/Komponenten/Kanten/";join=true))
         include.(pfad)
