@@ -4,6 +4,7 @@ module MP2FlexHyX
     using Dates
     using LinearAlgebra
     using SparseArrays
+    using Glob
     import JSON
 
     dir = dirname(@__FILE__)
@@ -21,10 +22,11 @@ module MP2FlexHyX
     include.(pfad)
 
     #-- Event-Funktion einfügen
-    pfad = filter(contains(r".jl$"), readdir(pwd()*"/src/Events/";join=true))
+    pfad = filter(contains(r".jl$"), readdir(pwd()*"/Events/";join=true))
     include.(pfad)
+    #foreach(include, glob("*.jl",pwd()*"/src/Events/"))
 
-    #include("./Events/fcn_events_H2_Lab.jl")
+    #include("Events/fcn_events_H2_Lab.jl")
 
     #=
     #-- Typenhierarchie anzeigen
