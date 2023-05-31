@@ -4,10 +4,17 @@ module MP2FlexHyX
     using Dates
     using LinearAlgebra
     using SparseArrays
-    using Glob
     import JSON
 
     dir = dirname(@__FILE__)
+
+    #-- Event-Funktion einfügen
+    if ispath(pwd()*"/Events/")
+        pfad = filter(contains(r".jl$"), readdir(pwd()*"/Events/";join=true))
+    elseif ispath(pwd()*"/src/Events/")
+        pfad = filter(contains(r".jl$"), readdir(pwd()*"/src/Events/";join=true))
+    end
+    include.(pfad)
 
     #-- Funktionen einfügen
     pfad = filter(contains(r".jl$"), readdir(dir*"/Funktionen/";join=true))
@@ -20,14 +27,7 @@ module MP2FlexHyX
     #-- Kanten einfügen
     pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Kanten/";join=true))
     include.(pfad)
-
-    #-- Event-Funktion einfügen
-    pfad = filter(contains(r".jl$"), readdir(pwd()*"/Events/";join=true))
-    include.(pfad)
-    #foreach(include, glob("*.jl",pwd()*"/src/Events/"))
-
-    #include("Events/fcn_events_H2_Lab.jl")
-
+    
     #=
     #-- Typenhierarchie anzeigen
     using AbstractTrees
