@@ -21,11 +21,11 @@ module MP2FlexHyX
     include.(pfad)
 
     #-- Event-Funktion einfügen
-    pfad = filter(contains(r".jl$"), readdir("src/Events/";join=true))
-    pfad = chop.(pfad, tail=0,head = 4)
-    include.(pfad)
+    #pfad = filter(contains(r".jl$"), readdir("src/Events/";join=true))
+    #pfad = chop.(pfad, tail=0,head = 4)
+    #include.(pfad)
 
-    #include("./Events/fcn_events_H2_Lab.jl")
+    include("./Events/fcn_events_H2_Lab.jl")
 
     #=
     #-- Typenhierarchie anzeigen
