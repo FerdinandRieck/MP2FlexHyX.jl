@@ -1,5 +1,5 @@
-dir = dirname(@__DIR__)
-include(dir*"/Events/fcn_events_H2_Lab.jl")
+#dir = dirname(@__DIR__)
+#include(dir*"/Events/fcn_events_H2_Lab.jl")
 
 function solveNetzwerk(dir::String)
     println("---------------- This is FlexhyX ------------------")
@@ -173,7 +173,9 @@ function MakeParam(kk)
 end
 
 function Leitsung_anhängen(y,elemente,idx_iflussL,idx_iflussR,IM,IP)
-    idx2struct!(elemente)
+
+    idx2netzwerk!(elemente)
+    
     y = Array(y)
 
     sum_i = IP[:,idx_iflussR[:,1]]*y[idx_iflussR[:,2],:] - IM[:,idx_iflussL[:,1]]*y[idx_iflussL[:,2],:];

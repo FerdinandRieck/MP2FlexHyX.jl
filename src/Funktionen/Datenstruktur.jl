@@ -62,7 +62,7 @@ function netzwerk2array(y_netz)
     return y_arr, idx_iflussL, idx_iflussR, idx_mfluss, idx_efluss, P_scale, y_leg, idx_ele
 end
 
-function array2tuple!(y_netz,y_arr)
+function array2netzwerk!(y_netz,y_arr)
     idx = 0
     for i=1:length(y_netz.knoten)
         for ff in fieldnames(typeof(y_netz.knoten[i].y))
@@ -83,7 +83,7 @@ function array2tuple!(y_netz,y_arr)
     nothing
 end
 
-function idx2struct!(y_netz)
+function idx2netzwerk!(y_netz)
     idx = 0
     for i=1:length(y_netz.knoten)
         for ff in fieldnames(typeof(y_netz.knoten[i].y))

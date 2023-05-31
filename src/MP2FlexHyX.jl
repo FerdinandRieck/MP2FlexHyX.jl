@@ -20,6 +20,13 @@ module MP2FlexHyX
     pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Kanten/";join=true))
     include.(pfad)
 
+    #-- Event-Funktion einfügen
+    pfad = filter(contains(r".jl$"), readdir("src/Events/";join=true))
+    pfad = chop.(pfad, tail=0,head = 4)
+    include.(pfad)
+
+    #include("./Events/fcn_events_H2_Lab.jl")
+
     #=
     #-- Typenhierarchie anzeigen
     using AbstractTrees
