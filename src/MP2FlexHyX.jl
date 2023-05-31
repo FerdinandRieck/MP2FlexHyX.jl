@@ -11,11 +11,12 @@ module MP2FlexHyX
     #-- Event-Funktion einfügen
     if ispath(pwd()*"/Events/")
         pfad = filter(contains(r".jl$"), readdir(pwd()*"/Events/";join=true))
+        include.(pfad)
     elseif ispath(pwd()*"/src/Events/")
         pfad = filter(contains(r".jl$"), readdir(pwd()*"/src/Events/";join=true))
+        include.(pfad)
     end
-    include.(pfad)
-
+    
     #-- Funktionen einfügen
     pfad = filter(contains(r".jl$"), readdir(dir*"/Funktionen/";join=true))
     include.(pfad)
@@ -23,10 +24,18 @@ module MP2FlexHyX
     #-- Knoten einfügen
     pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Knoten/";join=true))
     include.(pfad)
+    if ispath(pwd()*"/Komponenten/Knoten/")
+        pfad = filter(contains(r".jl$"), readdir(pwd()*"/Komponenten/Knoten/";join=true))
+        include.(pfad)
+    end
 
     #-- Kanten einfügen
     pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Kanten/";join=true))
     include.(pfad)
+    if ispath(pwd()*"/Komponenten/Kanten/")
+        pfad = filter(contains(r".jl$"), readdir(pwd()*"/Komponenten/Knoten/";join=true))
+        include.(pfad)
+    end
     
     #=
     #-- Typenhierarchie anzeigen
