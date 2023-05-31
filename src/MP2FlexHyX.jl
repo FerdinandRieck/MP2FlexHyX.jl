@@ -24,18 +24,10 @@ module MP2FlexHyX
     #-- Knoten einfügen
     pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Knoten/";join=true))
     include.(pfad)
-    if ispath(pwd()*"/Komponenten/Knoten/")
-        pfad = filter(contains(r".jl$"), readdir(pwd()*"/Komponenten/Knoten/";join=true))
-        include.(pfad)
-    end
 
     #-- Kanten einfügen
     pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Kanten/";join=true))
     include.(pfad)
-    if ispath(pwd()*"/Komponenten/Kanten/")
-        pfad = filter(contains(r".jl$"), readdir(pwd()*"/Komponenten/Kanten/";join=true))
-        include.(pfad)
-    end
     
     #=
     #-- Typenhierarchie anzeigen
