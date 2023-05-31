@@ -22,22 +22,20 @@ module MP2FlexHyX
     include.(pfad)
 
     #-- Knoten einfügen
-    pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Knoten/";join=true))
-    include.(pfad)
     if ispath(pwd()*"/Komponenten/Knoten/")
         pfad = filter(contains(r".jl$"), readdir(pwd()*"/Komponenten/Knoten/";join=true))
         include.(pfad)
     end
+    pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Knoten/";join=true))
+    include.(pfad)
 
     #-- Kanten einfügen
-    if ispath(pwd()*"/src/Komponenten/Kanten/")
-        pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Kanten/";join=true))
-        include.(pfad)
-    end
     if ispath(pwd()*"/Komponenten/Kanten/")
         pfad = filter(contains(r".jl$"), readdir(pwd()*"/Komponenten/Kanten/";join=true))
         include.(pfad)
     end
+    pfad = filter(contains(r".jl$"), readdir(dir*"/Komponenten/Kanten/";join=true))
+    include.(pfad)
     
     #=
     #-- Typenhierarchie anzeigen
@@ -50,8 +48,8 @@ module MP2FlexHyX
     export solveNetzwerk
     export plotSol
 
-    #idx_ele, sol, y = solveNetzwerk(dir)
-    #plotSol(y,sol.t)
+    idx_ele, sol, y = solveNetzwerk(dir)
+    plotSol(y,sol.t)
  end
 
 #=
