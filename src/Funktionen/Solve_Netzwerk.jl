@@ -155,6 +155,7 @@ function solveNetzwerk(dir::String)
     println(sol.destats)
     println("---------------- This was FlexHyX -----------------")
     return idx_ele, sol, y
+    #return sol
 end
 
 function MakeParam(kk) 

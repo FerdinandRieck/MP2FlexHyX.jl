@@ -12,9 +12,6 @@ module MP2FlexHyX
     if ispath(pwd()*"/Events/")
         pfad = filter(contains(r".jl$"), readdir(pwd()*"/Events/";join=true))
         include.(pfad)
-    elseif ispath(pwd()*"/src/Events/")
-        pfad = filter(contains(r".jl$"), readdir(pwd()*"/src/Events/";join=true))
-        include.(pfad)
     end
     
     #-- Funktionen einfügen
@@ -39,9 +36,6 @@ module MP2FlexHyX
     #-- Funktionen exportieren
     export solveNetzwerk
     export plotSol
-
-    #idx_ele, sol, y = solveNetzwerk(dir)
-    #plotSol(y,sol.t)
  end
 
 #=
