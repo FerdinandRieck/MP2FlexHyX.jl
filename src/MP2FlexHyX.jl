@@ -37,9 +37,3 @@ module MP2FlexHyX
     export solveNetzwerk
     export plotSol
  end
-
-#=
-Aktuelle Bugs:
-- Eventfunktion muss aktuell noch in solveNetzwerk Funktion oben includiert werden
-- leichte unterschiede der Eventzeitpunkte von Matlab und JULIA mit Zeitreihe
-=#

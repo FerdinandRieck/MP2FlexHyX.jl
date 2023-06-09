@@ -1,6 +1,3 @@
-#dir = dirname(@__DIR__)
-#include(dir*"/Events/fcn_events_H2_Lab.jl")
-
 function solveNetzwerk(dir::String)
     println("---------------- This is FlexhyX ------------------")
 #-- Netwerk einlesen
@@ -105,8 +102,8 @@ function solveNetzwerk(dir::String)
     end
     for i=1:n_n #--- AW ändern ----
         kk = knoten[i].Z; typ = kk["Typ"];
-        if typ=="U" knoten[i].y.U = U_max; end  #???Wofür wird das genau benötigt AW??? was wenn zwei nicht gekoppelte Stromnetze???
-        if typ=="GP" knoten[i].y.P = P_max; end #???Wieso kein T_max bestimmen???
+        if typ=="U" knoten[i].y.U = U_max; end 
+        if typ=="GP" knoten[i].y.P = P_max; end 
         if typ=="WP" knoten[i].y.PW = PW_max; end
     end
     #-----------------------------------------------------
@@ -155,7 +152,6 @@ function solveNetzwerk(dir::String)
     println(sol.destats)
     println("---------------- This was FlexHyX -----------------")
     return idx_ele, sol, y
-    #return sol
 end
 
 function MakeParam(kk) 

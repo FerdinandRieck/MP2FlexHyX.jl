@@ -50,14 +50,14 @@ function readZeitreihe(file)
             werte[i, :] = JW'
         else #-- NaN als Text vorhanden
             ff = JW .== "NaN"
-            werte[i, !ff] = parse.(Float64, JW[.!ff])
-            werte[i, ff] = NaN
+            werte[i,!ff] = parse.(Float64, JW[.!ff])
+            werte[i,ff] = NaN
         end
     end 
     #--
     if any(isnan.(werte))
         for i = 1:length(namen)
-            werte[:, i] = fillmissing(werte[:, i], "linear", SortedDict(t => 1:length(t)))
+            werte[:,i] = fillmissing(werte[:,i], "linear", SortedDict(t => 1:length(t)))
         end
     end
     startdatum = startzeit
